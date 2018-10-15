@@ -13,6 +13,7 @@
 
   <img id="banner" src="mypic.png" alt="Banner Image"/>
 
+
   <div class="flex" id="buttons">
     <link href="styles.css" rel="stylesheet"/>
       <a
@@ -21,6 +22,9 @@
       v-bind:class="['bttn', { active: currentTab.name === tab.name }]"
       v-on:click="currentTab = tab"
       >{{ tab.name }}</a>
+    </div>
+
+  <div class="container">
   <component
     v-bind:is="currentTab.component"
     class="tab"
@@ -44,30 +48,6 @@
 </div>
 
   <script>
-
-  Vue.component('tab-home', {
-	template: '<div>Home component</div>'
-})
-Vue.component('tab-posts', {
-	template: '<div>Posts component</div>'
-})
-Vue.component('tab-archive', {
-	template: '<div>Archive component</div>'
-})
-
-new Vue({
-  el: '#dynamic-component-demo',
-  data: {
-    currentTab: 'Home',
-    tabs: ['Home', 'Posts', 'Archive']
-  },
-  computed: {
-    currentTabComponent: function () {
-      return 'tab-' + this.currentTab.toLowerCase()
-    }
-  }
-})
-
 var tabs = [
   {
     name: 'Home',
