@@ -11,48 +11,104 @@
 </head>
 <body>
 
-  <img id="banner" src="mypic.png"/>
+  <img id="banner" src="mypic.png" alt="Banner Image"/>
 
-  <div class="flex" id ="button-1">
-    <link href="styles.css" rel="stylesheet" type="text/css"/>
-      <a class="bttn" v-on:click="reverseMessage" id="test">{{ message }}</a>
+  <div class="flex" id="buttons">
+    <link href="styles.css" rel="stylesheet"/>
+      <a
+      v-for="tab in tabs"
+      v-bind:key="tab.name"
+      v-bind:class="['bttn', { active: currentTab.name === tab.name }]"
+      v-on:click="currentTab = tab"
+      >{{ tab.name }}</a>
+  <component
+    v-bind:is="currentTab.component"
+    class="tab"
+  ></component>
+</div>
 
-    <link href="styles.css" rel="stylesheet" type="text/css"/>
-      <a class="bttn">Team</a>
 
-    <link href="styles.css" rel="stylesheet" type="text/css"/>
-      <a class="bttn">About</a>
-  </div>
+<!-- <div id="dynamic-component-demo" class="demo">
+  <button
+    v-for="tab in tabs"
+    v-bind:key="tab"
+    v-bind:class="['tab-button', { active: currentTab === tab }]"
+    v-on:click="currentTab = tab"
+  >{{ tab }}</button>
 
-  <div id="app-5">
-    <p>{{ message }}</p>
-      <button v-on:click="reverseMessage">Reverse Message</button>
-  </div>
+  <component
+    v-bind:is="currentTabComponent"
+    class="tab"
+  ></component> -->
+
+</div>
 
   <script>
-  var app5 = new Vue({
-  el: '#app-5',
+
+  Vue.component('tab-home', {
+	template: '<div>Home component</div>'
+})
+Vue.component('tab-posts', {
+	template: '<div>Posts component</div>'
+})
+Vue.component('tab-archive', {
+	template: '<div>Archive component</div>'
+})
+
+new Vue({
+  el: '#dynamic-component-demo',
   data: {
-    message: 'Hello Vue.js!'
+    currentTab: 'Home',
+    tabs: ['Home', 'Posts', 'Archive']
   },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
+  computed: {
+    currentTabComponent: function () {
+      return 'tab-' + this.currentTab.toLowerCase()
     }
   }
 })
 
-  var bt1 = new Vue({
-    el: '#button-1',
-    data: {
-      message: 'Home'
-    },
-    methods:{
-      reverseMessage: function(){
-        this.message = this.message.split('').reverse().join('')
-      }
+var tabs = [
+  {
+    name: 'Home',
+    component: {
+      template: '<div>Home component</div>'
     }
-  })
+  },
+  {
+    name: 'Drivers',
+    component: {
+      template: '<div>Drivers component</div>'
+    }
+  },
+  {
+    name: 'Cars',
+    component: {
+      template: '<div>Cars component</div>',
+    }
+  },
+  {
+    name: 'Events',
+    component: {
+      template: '<div>Events component</div>',
+    }
+  },
+  {
+    name: 'About Team',
+    component: {
+      template: '<div>About Team component</div>',
+    }
+  }
+]
+
+new Vue({
+  el: '#buttons',
+  data: {
+  	tabs: tabs,
+    currentTab: tabs[0]
+  }
+})
+
   </script>
 
 </body>

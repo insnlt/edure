@@ -20,6 +20,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.al {
+display: block;
+text-align: center;
+}
+
 .dark {
   background: #24252A;
 }
@@ -91,6 +96,9 @@ a.bttn-dark:focus {
   right: 0;
   opacity: 1;
 }
+.bttn.active{
+  background:  #EDE600;
+}
 .bttn:focus:before {
   transition: 0.5s all ease;
   left: 0;
@@ -98,6 +106,17 @@ a.bttn-dark:focus {
   opacity: 1;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.tab {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 
 #banner{
   position: absolute;
