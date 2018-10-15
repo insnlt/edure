@@ -86,6 +86,27 @@ body {
   opacity: 0;
 }
 
+.tab {
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.defaultTextBox {
+    padding: 0;
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -200px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+}
+
 #banner{
   position: absolute;
    top: 0px;
