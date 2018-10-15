@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <img id="banner" src="mypic.png"/>
+
+  <div class="flex" id ="button-1">
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+      <a class="bttn" v-on:click="reverseMessage" id="test">{{ message }}</a>
+
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+      <a class="bttn">Team</a>
+
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+      <a class="bttn">About</a>
+  </div>
+
+  <div id="app-5">
+    <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <script>
+  var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+
+  var bt1 = new Vue({
+    el: '#button-1',
+    data: {
+      message: 'Home'
+    },
+    methods:{
+      reverseMessage: function(){
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+  </script>
+
+</body>
+</html>
