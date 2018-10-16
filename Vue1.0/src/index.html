@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+<img id="banner" src="mypic.png" alt="Banner Image"/>
+
+
+  <!-- <div class="flex" id="buttons">
+    <link href="styles.css" rel="stylesheet"/>
+      <a
+      v-for="tab in tabs"
+      v-bind:key="tab.name"
+      v-bind:class="['bttn', { active: currentTab.name === tab.name }]"
+      v-on:click="currentTab = tab"
+      >{{ tab.name }}</a>
+    </div> -->
+
+  <div id="main">
+  <link href="styles.css" rel="stylesheet"/>
+      <!-- The navigation menu will get the value of the "active" variable as a class. -->
+
+      <!-- To stops the page from jumping when a link is clicked
+          we use the "prevent" modifier (short for preventDefault). -->
+
+      <nav v-bind:class="active" v-on:click.prevent>
+
+          <!-- When a link in the menu is clicked, we call the makeActive method,
+          defined in the JavaScript Vue instance. It will change the value of "active". -->
+
+          <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+          <a href="#" class="drivers" v-on:click="makeActive('drivers')">Drivers</a>
+          <a href="#" class="cars" v-on:click="makeActive('cars')">Cars</a>
+          <a href="#" class="events" v-on:click="makeActive('events')">Events</a>
+          <a href="#" class="aboutTeam" v-on:click="makeActive('aboutTeam')">About Team</a>
+      </nav>
+
+      <!-- The mustache expression will be replaced with the value of "active".
+           It will automatically update to reflect any changes. -->
+
+      <p>You chose <b>{{active}}</b></p>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script>
+  // Creating a new Vue instance and pass in an options object.
+  var demo = new Vue({
+
+      // A DOM element to mount our view model.
+      el: '#main',
+
+      // This is the model.
+      // Define properties and give them initial values.
+      data: {
+          active: 'home'
+      },
+
+      // Functions we will be using.
+      methods: {
+          makeActive: function(item){
+              // When a model is changed, the view will be automatically updated.
+              this.active = item;
+          }
+      }
+  });
+
+  </script>
+
+</body>
+</html>
