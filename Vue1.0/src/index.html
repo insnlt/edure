@@ -44,7 +44,32 @@
       <!-- The mustache expression will be replaced with the value of "active".
            It will automatically update to reflect any changes. -->
 
-      <p>You chose <b>{{active}}</b></p>
+      <!-- <p>You chose <b>{{active}}</b></p> -->
+      <template v-if="active === 'home'">
+            <h1>EduRe Home Page</h1>
+            <br>
+            <p align="left">What this should contain?</p>
+      </template>
+      <template v-if="active === 'drivers'">
+            <h1>Current Roster</h1>
+            <p align="left">Eimantas Sileikis</p>
+            <p align="left">Andrius Sakalas</p>
+      </template>
+      <template v-if="active === 'cars'">
+            <h1>Favourite cars</h1>
+            <p align="left">GT3</p>
+      </template>
+      <template v-if="active === 'events'">
+            <h1>Attended events</h1>
+            <p align="left">Petit Le Mans</p>
+            <h2>Results</h2>
+            <p align="left">Nyaaaaah P2</p>
+      </template>
+      <template v-if="active === 'aboutTeam'">
+            <p>Plebs driving</p>
+      </template>
+
+
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
