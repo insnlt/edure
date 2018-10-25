@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>MyApp</title>
-  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -12,7 +11,7 @@
 <img id="banner" src="mypic.png" alt="Banner Image"/>
 
   <div id="main">
-  <link href="styles.css" rel="stylesheet"/>
+  <link href="css/styles.css" rel="stylesheet" type="text/css"/>
 
       <nav v-bind:class="active" v-on:click.prevent>
 
@@ -35,18 +34,19 @@
             </title>
 
             <article>
-            <h2>Racing in Radicals</h2>
-            <p class="article-meta"><strong>Author:</strong> Eimantas Sileikis, <strong>Published:</strong> 2018-10-17</p>
+            <h2>Welcome!</h2>
+            <p class="article-meta"><strong>Author:</strong> Andrius Sakalas, <strong>Published:</strong> 2018-10-22</p>
 
             <div class="image-wrapper">
-               <img src="http://peoplecancode-public.s3.amazonaws.com/cat.jpg">
-               <span>Image source: randomCat</span>
+               <img src="mypic.png">
+               <span>Image source: EduRe website</span>
              </div>
 
              <p>
-               Recently Eimantas Sileikis has raced in iRacing Radical league where he faced some issues. He lost control and crashed out two guys at the famous SPA circuit. Tragic accident whatsoever.
+                This is the first website made for EduRe Simracing team. Here will be posted news and other relevant information
+                regarding team and it's achievements.
              </p>
-             <p>Due to such a big crash Eimantas took a big dip in his SR(Safety Rating) which caused him to burst in anger.</p>
+             <p>EduRe teams wish you a great day and safe racing!</p>
 
 
       </article>
@@ -56,20 +56,23 @@
             <div id="animation">
             <h1>Current Roster</h1>
             <ul class="container">
-    <li><img src="maxresdefault.jpg" width="300" height="250" alt="" />Andrius Sakalas</li>
-    <li><img src="maxresdefault.jpg" width="300" height="250" alt="" />Eimantas Sileikis</li>
+    <li><img src="my.jpg" width="300" height="250" alt="" />Andrius Sakalas</li>
+    <li><img src="eima.jpg" width="300" height="250" alt="" />Eimantas Sileikis</li>
   </ul></div>
       </template>
       <template v-if="active === 'cars'">
             <div id="animation">
             <h1>Cars we race</h1>
-            <p align="left">GT3</p></div>
+            <ul class="container">
+            <li><img src="edure.png" width="540" height="280" alt=""/>GT3</li>
+            <li><img src="porsche.jpg" width="540" height="280" alt=""/>Porsche Cup</li>
+          </ul></div>
       </template>
       <template v-if="active === 'events'">
             <div id="animation">
             <h1>Attended Events</h1>
 
-            <p align="left">iRacing - Petit Le Mans</p>
+            <p align="left">iRacing - Petit Le Mans (10 Hour Endurance)</p>
             <p align="left">ACRL - Porsche Cup 2018 Summer</p>
 
             <h1>Current running Events</h1>
@@ -77,9 +80,8 @@
       </template>
       <template v-if="active === 'contacts'">
             <div id="animation">
-            <h1>How to reach us</h1>
-            <p>Email:</p>
-            <p>Discord:</p>
+            <h1>You can reach us by contacting us on Email:</h1>
+            <p>Email:a.sakalas2@gmail.com</p>
             </div>
       </template>
 
